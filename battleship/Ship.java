@@ -11,25 +11,19 @@ package battleship;
  * @author Emmanuel
  */
 public class Ship {
-    private String name;
-    private int size;
-    private int lives;
-    private boolean isSunk;
-    private boolean isTouched;
+    protected int size;
+    protected int lives;
+    protected boolean isSunk;
+    protected boolean isTouched;
     
     
     
     //Métodos
-    public Ship(String name, int size){
-            this.name = name;
-            this.size = size;
-            this.lives = size;
-            this.isSunk = false;
-            this.isTouched = false;       
-    }
-
-    public String getName() {
-        return name;
+    public Ship(int size){
+        this.size = size;
+        this.lives = size;
+        this.isSunk = false;
+        this.isTouched = false;       
     }
 
     public int getSize() {
@@ -55,12 +49,6 @@ public class Ship {
     public void setIsTouched(boolean isTouched) {
         this.isTouched = isTouched;
     }
-
-    //Para pruebas
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
-    
         
  /**
  * Descripcion: Método que determina la ultima celda o espacio en el tablero que
@@ -91,11 +79,11 @@ public class Ship {
         if(lives == 0) {
             isSunk = true;
             isTouched = false;
-            System.out.println("El " + name + "esta hundido");//Esto podria ir en game tambien, la interaccion con el usuario
+            System.out.println("Un barco esta hundido");//Esto podria ir en game tambien, la interaccion con el usuario
             return;
         }
         isTouched = true;
-        System.out.println("El " + name + "fue tocado");//Esto podria ir en game tambien, la interaccion con el usuario
+        System.out.println("Un barco fue tocado");//Esto podria ir en game tambien, la interaccion con el usuario
         lives--;
     }
    
