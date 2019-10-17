@@ -16,14 +16,15 @@ public class Player {
     private int misses;
     private int fires;
     private int lives;
-    //Definir si seran atribustos u objetos
     private String principalBoard[][]= new String[10][10];
     private String shootsBoard[][]= new String[10][10];
     private ArrayList<Ship> ships = new ArrayList();
+    
     //Constructores de la clase
     public Player(String name){
         this.name = name;
     }
+    
     //Metodos
     public String getName(){
         return name;
@@ -42,6 +43,19 @@ public class Player {
     }
     public String[][] getShootsBoard(){
         return shootsBoard;
+    }
+    public ArrayList getPlayerShips(){
+        return ships;
+    }
+    /**
+     * Descripcion: Metodo que me retorna un objeto del tipo barco que se encuentra
+     * en el arreglo de barcos del jugador
+     * @param pos
+     * @return 
+     */
+    public Ship getShip(int pos){
+        Ship ship = ships.get(pos);
+        return ship;
     }
 /**
  * Descripcion: Metodo que rellena el tablero de disparos son Strings que se 
@@ -70,6 +84,9 @@ public class Player {
         int y = pos[1];
         shootsBoard[x][y] = shoot;
     }
+    /**
+     * Descripcion: Metodo imprime en pantalla un tablero
+     */
     public void showShootBoard(){
         System.out.println("Este es tu tablero de disparos");
         for (int x=0; x < shootsBoard.length; x++) {
@@ -92,6 +109,18 @@ public class Player {
             System.out.println("|");
         }
     }
+    /**
+     * Descripcion: Elimina barcos del arreglo de barcos segun una pos dada
+     * Entrada: Resibe un int con la pos en el arreglo del objeto a borrar
+     * @param pos 
+     */
+    public void deleteShip(int pos){
+        ships.remove(pos);
+    }
+    /**
+     * Descripcion: Este metodo genera los objetos de tipo Ship y los almacena
+     * en un arreglo
+     */
     public void generateShips(){
         Ship portaAviones = new Ship("portaAviones" , 4);
         ships.add(portaAviones);
