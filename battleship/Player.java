@@ -122,19 +122,19 @@ public class Player {
      * en un arreglo
      */
     public void generateShips(){
-        Ship portaAviones = new Ship("portaAviones" , 4);
+        AircraftCarrier portaAviones = new AircraftCarrier();
         ships.add(portaAviones);
-        for (int i = 0; i < 3; i++){
-            Ship submarine = new Ship("submarino"+i, 3);
-            ships.add(submarine);
+        for(int i = 0; i < 3; i++){
+            Submarine submarinos = new Submarine();
+            ships.add(submarinos);
         }
-        for (int i = 0; i < 3; i++){
-            Ship destroyer = new Ship("destructor"+i, 2);
-            ships.add(destroyer);
+        for(int i = 0; i < 3; i++){
+            Destroyer destructor = new Destroyer();
+            ships.add(destructor);
         }
         for(int i = 0; i < 2; i++){
-            Ship frigate = new Ship ("fragata"+i, 1);
-            ships.add(frigate);
+            Frigate fragata = new Frigate ();
+            ships.add(fragata);
         }
     }
 }

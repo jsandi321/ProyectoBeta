@@ -33,6 +33,8 @@ public class Battleship {
         player1.generateBoard(player1.getShootsBoard());
         player1.showShipsBoard();
         player1.showShootBoard();
+        player1.getShip(0);
+        System.out.println("El portaaviones tiene "+player1.getShip(0).getLives()+" vidas");
     }
     
 }
